@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: wisecow-deployment
 spec:
-  replicas: 1  # Adjust the number of replicas based on your requirements
+  replicas: 1  
   selector:
     matchLabels:
       app: wisecow
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: wisecow-container
-          image: akshaya12/wisecow:1.0  # Replace with your actual Docker image
+          image: akshaya12/wisecow:1.0 
           ports:
-            - containerPort: 3000  # Adjust based on your application's port
+            - containerPort: 3000  
 
