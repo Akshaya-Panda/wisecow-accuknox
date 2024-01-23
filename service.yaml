@@ -7,7 +7,6 @@ spec:
     app: wisecow
   ports:
     - protocol: TCP
-      port: 80  # Adjust based on your service's port
-      targetPort: 3000  # Adjust based on your application's port
-  type: LoadBalancer  # Change to NodePort or ClusterIP based on your needs
-
+      port: 80  
+      targetPort: 3000  
+  type: LoadBalancer  
