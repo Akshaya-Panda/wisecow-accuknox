@@ -39,7 +39,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           
           script: |-
-            docker stop wisecow_accuknox || true
-            docker rm wisecow_accuknox || true
-            docker pull ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
-            docker run -d --name -p 80:80 ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
+            docker stop wisecow || true
+            docker rm wisecow || true
+            docker pull ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ steps.meta.outputs.tags }}
+            docker run -d --name  ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ steps.meta.outputs.tags }}
