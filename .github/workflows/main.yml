@@ -31,15 +31,15 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-      - name: Deploy docker image to EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
+      # - name: Deploy docker image to EC2
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.EC2_HOST }}
+      #     username: ${{ secrets.EC2_USERNAME }}
+      #     key: ${{ secrets.EC2_PRIVATE_KEY }}
           
-          script: |-
-            docker stop wisecow_accuknox || true
-            docker rm wisecow_accuknox || true
-            docker pull ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
-            docker run -d --name -p 80:80 ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
+      #     script: |-
+      #       docker stop wisecow_accuknox || true
+      #       docker rm wisecow_accuknox || true
+      #       docker pull ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
+      #       docker run -d --name -p 80:80 ${{ secrets.DOCKER_USERNAME }}/wisecow_accuknox:${{ steps.meta.outputs.tags }}
